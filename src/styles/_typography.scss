@@ -1,33 +1,42 @@
+@use "variables" as v;
+
 @mixin title-3 {
-  font-family: $font-circe;
+  font-family: v.$font-circe;
   font-weight: 400;
   font-size: 20px;
   line-height: 106%;
 }
 
 @mixin regular-16 {
-  font-family: $font-circe;
+  font-family: v.$font-circe;
   font-weight: 400;
   font-size: 16px;
   line-height: 135%;
 }
 
 @mixin regular-14 {
-  font-family: $font-circe;
+  font-family: v.$font-circe;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
 }
 
 @mixin regular-12 {
-  font-family: $font-circe;
+  font-family: v.$font-circe;
   font-weight: 400;
   font-size: 12px;
   line-height: 135%;
 }
 
+@mixin bold-20 {
+  font-family: v.$font-circe;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 135%;
+}
+
 @mixin bold-14 {
-  font-family: $font-circe;
+  font-family: v.$font-circe;
   font-weight: 700;
   font-size: 14px;
   line-height: 135%;

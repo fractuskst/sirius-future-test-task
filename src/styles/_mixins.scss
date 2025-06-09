@@ -1,0 +1,50 @@
+@use "variables" as v;
+@use "typography" as t;
+
+@mixin button-base {
+  @include t.regular-16;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  height: 40px;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 1px solid v.$blue-100;
+    outline-offset: 1px;
+  }
+}
+
+@mixin primary-button {
+  @include button-base;
+  background: v.$blue-100;
+  color: v.$surface-1;
+
+  &:hover {
+    background: v.$blue-110;
+  }
+
+  &:disabled {
+    background-color: v.$disabled-button;
+    color: v.$disabled;
+    cursor: not-allowed;
+  }
+}
+
+@mixin secondary-button {
+  @include button-base;
+  background: v.$blue-050;
+  color: v.$default;
+
+  &:hover {
+    background: v.$blue-070;
+  }
+}

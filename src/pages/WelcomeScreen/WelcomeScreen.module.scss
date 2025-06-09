@@ -1,0 +1,18 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/typography" as t;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.title {
+  @include t.bold-20;
+}
+
+button {
+  @include m.primary-button;
+}

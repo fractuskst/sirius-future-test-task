@@ -1,5 +1,6 @@
-@import "variables";
-@import "typography";
+@use "variables" as v;
+@use "mixins" as m;
+@use "typography" as t;
 
 @font-face {
   font-family: "Circe Rounded";
@@ -22,8 +23,6 @@
 }
 
 body {
-  display: flex;
-  place-items: center;
   font-family: "Circe Rounded", sans-serif;
   font-weight: 400;
   min-width: 320px;
