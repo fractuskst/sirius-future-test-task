@@ -1,0 +1,22 @@
+@use "../../styles/variables" as v;
+
+.container {
+  display: flex;
+  height: 16px;
+  background: v.$blue-060;
+  width: 100%;
+}
+
+.progress {
+  background-color: v.$blue-100;
+
+  &[data-step="1"] {
+    width: calc(100% / 3);
+  }
+  &[data-step="2"] {
+    width: calc(100% * 2 / 3);
+  }
+  &[data-step="3"] {
+    width: 100%;
+  }
+}

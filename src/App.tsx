@@ -10,11 +10,13 @@ import QuestionScreen from "@/pages/QuestionScreen/QuestionScreen";
 import ResultScreen from "@/pages/ResultScreen/ResultScreen";
 import WelcomeScreen from "@/pages/WelcomeScreen/WelcomeScreen";
 import { ROUTES } from "./routes/routes";
+import Header from "@/components/Header/Header";
 
 const App = () => {
   return (
     <div className={styles.container}>
       <Router>
+        <Header />
         <Routes>
           <Route path={ROUTES.welcome} element={<WelcomeScreen />} />
           <Route path={ROUTES.upload} element={<PhotoUploadScreen />} />
