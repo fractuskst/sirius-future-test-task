@@ -26,6 +26,7 @@ body {
   font-family: "Circe Rounded", sans-serif;
   font-weight: 400;
   min-height: 100vh;
+  background-color: rgb(230, 230, 230);
 }
 
 #root {
@@ -33,4 +34,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+h2 {
+  @include t.bold-20;
 }

@@ -3,9 +3,9 @@ import styles from "./Header.module.scss";
 import getStepFromPath from "@/utils/getStepFromPath";
 
 const Header = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  const step = getStepFromPath(location.pathname);
+  const step = getStepFromPath(pathname);
 
   return (
     step > 0 && (

@@ -1,0 +1,47 @@
+@use "/src/styles/variables" as v;
+@use "/src/styles/typography" as t;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 64px 32px 64px;
+  gap: 64px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.alert {
+  display: inline-flex;
+  background: v.$red-030;
+  border-radius: 100px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.alertText {
+  color: v.$red-110;
+  @include t.regular-14;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step {
+  @include t.bold-14;
+  color: v.$muted;
+  align-self: flex-end;
+}

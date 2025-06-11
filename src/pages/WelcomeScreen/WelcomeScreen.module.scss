@@ -1,5 +1,4 @@
-@use "../../styles/mixins" as m;
-@use "../../styles/typography" as t;
+@use "/src/styles/mixins" as m;
 
 .container {
   display: flex;
@@ -7,10 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
-}
-
-.title {
-  @include t.bold-20;
+  padding: 150px;
 }
 
 button {

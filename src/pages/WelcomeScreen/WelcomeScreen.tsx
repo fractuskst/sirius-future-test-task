@@ -7,7 +7,7 @@ const WelcomeScreen = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Карта развития ребёнка: AI-диагностика</h2>
+      <h2>Карта развития ребёнка: AI-диагностика</h2>
       <button className={styles.button} onClick={() => navigate("/upload")}>
         <span>Начать тест</span>
         <ForwardRightIcon />
