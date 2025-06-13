@@ -2,8 +2,10 @@ import styles from "./ImageInput.module.scss";
 import UploadIcon from "@/assets/icons/upload.svg?react";
 import ReloadIcon from "@/assets/icons/reload.svg?react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFileUploaded, setPreview } from "@/store/slices/photoUploadSlice";
 import type { RootState } from "@/store/store";
+import { setFile, setError } from "@/store/slices/photoUpload/photoUploadSlice";
+
+const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
 
 type Props = {
   label: string;
@@ -12,31 +14,30 @@ type Props = {
 
 const ImageInput = ({ label, index }: Props) => {
   const dispatch = useDispatch();
-  const previews = useSelector((state: RootState) => state.photoUpload.previews);
+  const { files, previews } = useSelector((state: RootState) => state.photoUpload);
+  const file = files[index];
   const preview = previews[index];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (file.type === "application/pdf") {
-        dispatch(setPreview({ index, preview: "pdf" }));
-      } else {
-        const reader = new FileReader();
-        reader.onload = () => {
-          dispatch(setPreview({ index, preview: reader.result as string }));
-        };
-        reader.readAsDataURL(file);
+    dispatch(setError(null));
+    const inputFile = e.target.files?.[0];
+    if (inputFile) {
+      if (!allowedTypes.includes(inputFile.type)) {
+        dispatch(setError("Неверный формат файла. Разрешены: JPG, PNG, PDF."));
+        return;
       }
-      dispatch(setFileUploaded({ index, uploaded: true }));
-    } else {
-      dispatch(setPreview({ index, preview: null }));
-      dispatch(setFileUploaded({ index, uploaded: false }));
+
+      if (inputFile.size > 5 * 1024 * 1024) {
+        dispatch(setError("Файл слишком большой. Максимальный размер: 5MB"));
+        return;
+      }
+      dispatch(setFile({ index, file: inputFile }));
     }
   };
 
   const backgroundStyle = () => {
-    if (!preview) return { background: "#f6f6f8" };
-    if (preview === "pdf") return { background: `url('/src/assets/icons/pdf.svg') center no-repeat` };
+    if (!file) return { background: "#f6f6f8" };
+    if (file.type === "application/pdf") return { background: `url('/src/assets/icons/pdf.svg') center no-repeat` };
 
     return { background: `url(${preview}) center/cover` };
   };
@@ -52,7 +53,7 @@ const ImageInput = ({ label, index }: Props) => {
           onChange={handleFileChange}
         />
         <label htmlFor={label} className={styles.customUpload}>
-          {preview ? <ReloadIcon /> : <UploadIcon />}
+          {file ? <ReloadIcon /> : <UploadIcon />}
         </label>
       </div>
       <span>{label}</span>

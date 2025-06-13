@@ -45,3 +45,11 @@
   color: v.$muted;
   align-self: flex-end;
 }
+
+.error {
+  display: flex;
+  justify-content: flex-end;
+  color: v.$red-110;
+  @include t.regular-14;
+  margin-top: -50px;
+}
