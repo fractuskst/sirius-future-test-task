@@ -49,3 +49,21 @@
     background: v.$blue-070;
   }
 }
+
+@mixin input-styles($height: 40px) {
+  height: $height;
+  border-radius: 6px;
+  border: 1px solid v.$muted;
+  padding: 10px 12px;
+  background: v.$surface-1;
+  transition: border-color 0.2s ease;
+  outline: none;
+  @include t.regular-14;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:valid {
+    border-color: v.$violet-110;
+  }
+}

@@ -2,7 +2,7 @@ import styles from "./ImageInput.module.scss";
 import UploadIcon from "@/assets/icons/upload.svg?react";
 import ReloadIcon from "@/assets/icons/reload.svg?react";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "@/store/store";
+import type { AppDispatch, RootState } from "@/store/store";
 import { setFile, setError } from "@/store/slices/photoUpload/photoUploadSlice";
 
 const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const ImageInput = ({ label, index }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { files, previews } = useSelector((state: RootState) => state.photoUpload);
   const file = files[index];
   const preview = previews[index];

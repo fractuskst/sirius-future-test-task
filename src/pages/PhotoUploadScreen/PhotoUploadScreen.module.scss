@@ -1,5 +1,6 @@
 @use "/src/styles/variables" as v;
 @use "/src/styles/typography" as t;
+@use "/src/styles/mixins" as m;
 
 .container {
   display: flex;
@@ -44,6 +45,10 @@
   @include t.bold-14;
   color: v.$muted;
   align-self: flex-end;
+}
+
+.button {
+  @include m.primary-button;
 }
 
 .error {

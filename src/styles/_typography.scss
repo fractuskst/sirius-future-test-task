@@ -35,6 +35,13 @@
   line-height: 135%;
 }
 
+@mixin bold-18 {
+  font-family: v.$font-circe;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 125%;
+}
+
 @mixin bold-14 {
   font-family: v.$font-circe;
   font-weight: 700;

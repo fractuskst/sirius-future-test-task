@@ -1,0 +1,8 @@
+@use "/src/styles/variables" as v;
+@use "/src/styles/typography" as t;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

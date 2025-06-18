@@ -1,0 +1,53 @@
+@use "/src/styles/typography" as t;
+@use "/src/styles/variables" as v;
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input {
+  width: 95px;
+  cursor: pointer;
+}
+
+.popover {
+  position: absolute;
+  top: 70px;
+  z-index: 10;
+  box-shadow: 0px 0px 32px 0px #4453711a;
+
+  border-radius: 16px;
+  background: v.$surface-1;
+  overflow: hidden;
+}
+
+.selectedDay {
+  background-color: v.$violet-100;
+  color: v.$surface-1;
+  border-radius: 16px;
+}
+
+.today {
+  color: v.$violet-110;
+}
+
+.selectedDay.today {
+  color: v.$surface-1;
+}
+
+:global(.rdp-chevron) {
+  fill: v.$default !important;
+}
+
+:global(.rdp-month_caption) {
+  text-transform: capitalize;
+}
+
+:global(.rdp-caption_label) {
+  color: v.$soft;
+  @include t.regular-16;
+  margin-top: 6px;
+}

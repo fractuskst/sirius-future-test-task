@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import styles from "./App.module.scss";
 import PhotoUploadScreen from "@/pages/PhotoUploadScreen/PhotoUploadScreen";
 import QuestionScreen from "@/pages/QuestionScreen/QuestionScreen";
@@ -22,10 +17,7 @@ const App = () => {
           <Route path={ROUTES.upload} element={<PhotoUploadScreen />} />
           <Route path={ROUTES.questions} element={<QuestionScreen />} />
           <Route path={ROUTES.result} element={<ResultScreen />} />
-          <Route
-            path={ROUTES.notFound}
-            element={<Navigate to={ROUTES.welcome} />}
-          />
+          <Route path={ROUTES.notFound} element={<Navigate to={ROUTES.welcome} />} />
         </Routes>
       </Router>
     </div>

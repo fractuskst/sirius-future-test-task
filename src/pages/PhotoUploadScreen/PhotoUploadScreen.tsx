@@ -57,7 +57,7 @@ const PhotoUploadScreen = () => {
       </div>
       <footer className={styles.footer}>
         <span className={styles.step}>{`Шаг ${step}/3`}</span>
-        <button onClick={handleNextClick} disabled={!allFilesUploaded || loading}>
+        <button className={styles.button} onClick={handleNextClick} disabled={!allFilesUploaded || loading}>
           {"Далее"}
           <ArrowRight stroke={allFilesUploaded && !loading ? "#fff" : "#44537180"} />
         </button>

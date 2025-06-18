@@ -36,6 +36,11 @@ body {
   min-height: 100vh;
 }
 
+input[type="text"],
+input[type="date"] {
+  @include m.input-styles;
+}
+
 h2 {
   @include t.bold-20;
 }
